@@ -69,7 +69,13 @@ const ItemList = () => {
                 }}
                 elevation={2}
             >
-                <Box sx={{ overflowY: "scroll" }}>
+                <Box
+                    sx={{
+                        overflowY: "scroll",
+                        height: "100%",
+                        marginBottom: 2,
+                    }}
+                >
                     {items.map((item, index) => (
                         <motion.div key={item.id} layout transition={spring}>
                             <Item index={index} {...item} vote={vote} />
