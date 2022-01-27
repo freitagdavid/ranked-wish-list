@@ -1,12 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import { Common } from "metro4-react";
+import CssBaseline from "@mui/material/CssBaseline";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { createTheme } from "@mui/material";
+import { ThemeProvider } from "@emotion/react";
+
+const darkTheme = createTheme({
+    palette: {
+        mode: "dark",
+    },
+});
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <ThemeProvider theme={darkTheme}>
+            <CssBaseline enableColorScheme />
+            <App />
+        </ThemeProvider>
     </React.StrictMode>,
     document.getElementById("root")
 );
