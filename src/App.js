@@ -4,11 +4,9 @@ import Container from "@mui/material/Container";
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <Container>
-                    <ItemList></ItemList>
-                </Container>
-            </header>
+            <Container maxWidth="xl">
+                <ItemList></ItemList>
+            </Container>
         </div>
     );
 }
