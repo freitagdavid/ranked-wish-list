@@ -1,6 +1,3 @@
-// import "./App.css";
-import styled from "styled-components";
-// import Container from "./components/Container";
 import ItemList from "./components/ItemList";
 import Container from "@mui/material/Container";
 
