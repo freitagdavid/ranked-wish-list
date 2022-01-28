@@ -4,6 +4,7 @@ import { Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import { motion } from "framer-motion";
 import ItemInput from "../itemInput";
+import { v4 as uuidv4 } from "uuid";
 
 const ItemList = () => {
     const [items, setItems] = useState([
@@ -43,6 +44,21 @@ const ItemList = () => {
         });
     };
 
+    const addItem = (label, price, category) => {
+        setItems((prevItems) => {
+            return [
+                ...prevItems,
+                {
+                    id: uuidv4(),
+                    label,
+                    price,
+                    category,
+                    votes: 0,
+                },
+            ];
+        });
+    };
+
     const spring = {
         type: "springt",
         damping: 20,
@@ -52,9 +68,9 @@ const ItemList = () => {
     return (
         <Box
             sx={{
-                width: "100%",
+                // width: "100%",
                 height: "100vh",
-                padding: "10px",
+                paddingY: 2,
             }}
         >
             <Paper
@@ -83,23 +99,11 @@ const ItemList = () => {
                     ))}
                 </Box>
                 <Box>
-                    <ItemInput></ItemInput>
+                    <ItemInput addItem={addItem}></ItemInput>
                 </Box>
             </Paper>
         </Box>
     );
-
-    // return (
-    //     <StyledItemList>
-    //         <Paper style={{ height: "100%" }}>
-    //             {items.map((item, index) => (
-    //                 <Item key={index} index={index} {...item} vote={vote}>
-    //                     {JSON.stringify(item)}
-    //                 </Item>
-    //             ))}
-    //         </Paper>
-    //     </StyledItemList>
-    // );
 };
 
 export default ItemList;
